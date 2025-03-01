@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
+<!--     <link rel="stylesheet" href="bootstrap.min.css" /> -->
     <title>Задание_3</title>
   </head>
   <body>
