@@ -4,12 +4,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url(winxwp038.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
 }
 
 .form {
   margin: 40px 0;
   padding: 35px 70px;
   border: 4px solid rgba(20, 173, 56, 0.674);
+  background: pink;
 }
 
 .head {
