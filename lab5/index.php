@@ -1,9 +1,9 @@
 <?php
 
 $db;
-// подключение к базе данных
-include ('database.php');
-// отправка браузеру кодировку
+
+include ('sign_in.php');
+
 header("Content-Type: text/html; charset=UTF-8");
 session_start();
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: ./');
         exit();
     }
-	// функция проверки полей
+	
     function check_field($cook, $str, $flag)
     {
         global $error;
@@ -106,11 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($languages as $row)
                 $stmt1->execute([$_SESSION['form_id'], $row['id']]);
         } else {
-            $login = uniqid();//генерация рандом значения
+            $login = uniqid();
             $pass = uniqid();
             setcookie('login', $login);
             setcookie('pass', $pass);
-            $mpass = md5($pass);//хеш
+            $mpass = md5($pass);
             try {
                 $stmt = $db->prepare("INSERT INTO users (login, password) VALUES (?, ?)");
                 $stmt->execute([$login, $mpass]);
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return;
     }
 
-    // Выдаем сообщение об успешном сохранении.
+   
 	if (!empty($_COOKIE['save'])) {
         setcookie('save', '', 100000);
         setcookie('login', '', 100000);
@@ -193,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     check_field('check', $check);
 
     $languages = explode(',', $values['language']);
-	// вставка значений после авторизации 
+	
     if ($error && !empty($_SESSION['login'])) {
         try {
 			
@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             set_val('bio', $user_inf['bio']);
             set_val('check', "1");
 			
-		/*	printf('Вход с логином %s, user_id %d', $_SESSION['login'], $_SESSION['user_id']);*/
+		
 			
         } catch (PDOException $e) {
             print ('Error : ' . $e->getMessage());
