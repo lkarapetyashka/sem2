@@ -1,4 +1,4 @@
-
+$(document).ready(()=>{
     const $navMenu = $("#mobileMenu");
     $("#navbar-toggle").click(function(event){
         $navMenu.toggle("slide", { direction: "down" }, 600)
