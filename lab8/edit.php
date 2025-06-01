@@ -289,6 +289,7 @@ foreach (['errors','error_form','error_fields','name','phone','email','dob','gen
           <input type="submit" value="Сохранить изменения" class="buttons submit-button">
         </div>
       </form>
+        <a href="/project/">На главную страницу</a>
 
       <div class="form-actions logout-actions">
         <form action="logout.php" method="get">
